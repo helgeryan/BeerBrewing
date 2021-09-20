@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BeerMethod" representedClassName="BeerMethod" syncable="YES">
+        <relationship name="fermentation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fermentation" inverseName="method" inverseEntity="Fermentation"/>
+        <relationship name="mashTemp" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MashTemp" inverseName="method" inverseEntity="MashTemp"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="BeerRecipe" inverseName="method" inverseEntity="BeerRecipe"/>
+    </entity>
+    <entity name="BeerRecipe" representedClassName="BeerRecipe" syncable="YES">
+        <attribute name="abv" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="attenuationlevel" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="beerdescription" optional="YES" attributeType="String"/>
+        <attribute name="brewing_tips" optional="YES" attributeType="String"/>
+        <attribute name="contributedBy" optional="YES" attributeType="String"/>
+        <attribute name="ebc" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="firstBrewed" optional="YES" attributeType="String"/>
+        <attribute name="foodPairings" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="ibu" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageUrlString" optional="YES" attributeType="String" customClassName="URL"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ph" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="srm" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tagline" optional="YES" attributeType="String"/>
+        <attribute name="target_fg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="target_og" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="boilVolume" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BoilVolume" inverseName="recipe" inverseEntity="BoilVolume"/>
+        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredients" inverseName="recipe" inverseEntity="Ingredients"/>
+        <relationship name="method" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerMethod" inverseName="recipe" inverseEntity="BeerMethod"/>
+        <relationship name="volume" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Volume" inverseName="recipe" inverseEntity="Volume"/>
+    </entity>
+    <entity name="BoilVolume" representedClassName="BoilVolume" syncable="YES">
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="BeerRecipe" inverseName="boilVolume" inverseEntity="BeerRecipe"/>
+    </entity>
+    <entity name="Fermentation" representedClassName="Fermentation" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <relationship name="method" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerMethod" inverseName="fermentation" inverseEntity="BeerMethod"/>
+    </entity>
+    <entity name="Hops" representedClassName="Hops" syncable="YES">
+        <attribute name="add" optional="YES" attributeType="String"/>
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredients" inverseName="hops" inverseEntity="Ingredients"/>
+    </entity>
+    <entity name="Ingredients" representedClassName="Ingredients" syncable="YES">
+        <attribute name="yeast" optional="YES" attributeType="String"/>
+        <relationship name="hops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hops" inverseName="ingredients" inverseEntity="Hops"/>
+        <relationship name="malts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Malt" inverseName="ingredients" inverseEntity="Malt"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerRecipe" inverseName="ingredients" inverseEntity="BeerRecipe"/>
+    </entity>
+    <entity name="Malt" representedClassName="Malt" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredients" inverseName="malts" inverseEntity="Ingredients"/>
+    </entity>
+    <entity name="MashTemp" representedClassName="MashTemp" syncable="YES">
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <relationship name="method" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerMethod" inverseName="mashTemp" inverseEntity="BeerMethod"/>
+    </entity>
+    <entity name="Volume" representedClassName="Volume" syncable="YES">
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerRecipe" inverseName="volume" inverseEntity="BeerRecipe"/>
+    </entity>
+    <elements>
+        <element name="BeerMethod" positionX="45" positionY="198" width="128" height="74"/>
+        <element name="BeerRecipe" positionX="-45" positionY="0" width="128" height="344"/>
+        <element name="BoilVolume" positionX="9" positionY="171" width="128" height="74"/>
+        <element name="Fermentation" positionX="36" positionY="189" width="128" height="74"/>
+        <element name="Hops" positionX="0" positionY="153" width="128" height="119"/>
+        <element name="Ingredients" positionX="27" positionY="189" width="128" height="89"/>
+        <element name="Malt" positionX="18" positionY="171" width="128" height="89"/>
+        <element name="MashTemp" positionX="27" positionY="180" width="128" height="89"/>
+        <element name="Volume" positionX="-18" positionY="144" width="128" height="74"/>
+    </elements>
+</model>

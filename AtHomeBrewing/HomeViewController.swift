@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class HomeViewController: UIViewController {
     
     // Results array of the beer recipe query
     private var beerRecipeResults: [BeerRecipe] = []
+    
+    let context = CoreDataManager.shared.context
     
     // MARK: - UI Elements
     
@@ -70,13 +73,16 @@ class HomeViewController: UIViewController {
         
         // Add No Results Label to view
         view.addSubview(noResultsLabel)
+        
+        fetchBeer()
     }
     
     // Override viewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // Define the resultsTableView frame
+        // Define the resultsTableView frame 
+        
         resultsTableView.frame = CGRect(x: 0,
                                         y: view.safeAreaInsets.top,
                                         width: view.bounds.width,
@@ -88,6 +94,42 @@ class HomeViewController: UIViewController {
                                         width: view.bounds.width,
                                         height: view.bounds.height - view.safeAreaInsets.top)
     }
+    
+    func fetchBeer() {
+        
+        // Fetch the data from Core Data to display in the tableView
+        do {
+            let request = BeerRecipe.fetchRequest() as NSFetchRequest<BeerRecipe>
+            
+            // Set Filtering and Sorting
+
+            self.beerRecipeResults = try context.fetch(request)
+            
+            DispatchQueue.main.async {
+                self.resultsTableView.reloadData()
+            }
+        }
+        catch {
+            
+        }
+        
+        // Update the UI on the Main thread
+        DispatchQueue.main.async {
+            // If there are results, show resultsTableView
+            if self.beerRecipeResults.count != 0 {
+                self.resultsTableView.reloadData()
+                self.resultsTableView.isHidden = false
+                self.noResultsLabel.isHidden = true
+            }
+            // Else there are no results, show noResultsLabel
+            else {
+                self.resultsTableView.reloadData()
+                self.resultsTableView.isHidden = true
+                self.noResultsLabel.isHidden = false
+            }
+        }
+    }
+    
 }
 
 
@@ -100,7 +142,9 @@ extension HomeViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         
         // Remove all previous results
-        beerRecipeResults.removeAll()
+        for recipe in beerRecipeResults {
+            self.context.delete(recipe)
+        }
         
         // Check to make sure there is text available
         guard let searchText = searchBar.text else {
@@ -187,7 +231,11 @@ extension HomeViewController: UISearchBarDelegate {
                           let volumeDict = recipe["volume"] as? [String: Any],
                           let boilVolumeDict = recipe["boil_volume"] as? [String: Any],
                           let methodDict = recipe["method"] as? [String: Any],
+                          let mashTempDict = methodDict["mash_temp"] as? [[String: Any]],
+                          let fermDict = methodDict["fermentation"] as? [String: Any],
                           let ingredientsDict = recipe["ingredients"] as? [String: Any],
+                          let maltsDict = ingredientsDict["malt"] as? [[String: Any]],
+                          let hopsDict = ingredientsDict["hops"] as? [[String: Any]],
                           let food_pairing = recipe["food_pairing"] as? [String],
                           let brewers_tips = recipe["brewers_tips"] as? String,
                           let contributedBy = recipe["contributed_by"] as? String,
@@ -195,31 +243,90 @@ extension HomeViewController: UISearchBarDelegate {
                           let description = recipe["description"] as? String {
                         
                         // Store data to a new beer recipe element
-                        var newBeerRecipe = BeerRecipe()
-                        newBeerRecipe.name = name
-                        newBeerRecipe.id = id
-                        newBeerRecipe.firstBrewed = firstBrewed
-                        newBeerRecipe.description = description
-                        newBeerRecipe.imageUrl = imageUrl
-                        newBeerRecipe.contributedBy = contributedBy
-                        newBeerRecipe.tagline = tagline
-                        newBeerRecipe.abv = abv
-                        newBeerRecipe.ibu = ibu
-                        newBeerRecipe.target_fg = target_fg
-                        newBeerRecipe.target_og = target_og
-                        newBeerRecipe.ebc = ebc
-                        newBeerRecipe.srm = srm
-                        newBeerRecipe.ph = ph
-                        newBeerRecipe.attenuation_level = attenutation_level
-                        newBeerRecipe.volume = MeasurementValue(dict: volumeDict)
-                        newBeerRecipe.boilVolume = MeasurementValue(dict: boilVolumeDict)
-                        newBeerRecipe.brewers_Tips = brewers_tips
-                        newBeerRecipe.ingredients = Ingredients(dict: ingredientsDict)
-                        newBeerRecipe.method = Method(dict: methodDict)
-                        newBeerRecipe.foodPairing = food_pairing
+                        DispatchQueue.main.async {
+                            let newBeerRecipe = BeerRecipe(context: self!.context)
+                            newBeerRecipe.name = name
+                            newBeerRecipe.id = Int64(id)
+                            newBeerRecipe.firstBrewed = firstBrewed
+                            newBeerRecipe.beerdescription = description
+                            newBeerRecipe.imageUrlString = imageUrl.absoluteString
+                            newBeerRecipe.contributedBy = contributedBy
+                            newBeerRecipe.tagline = tagline
+                            newBeerRecipe.abv = abv
+                            newBeerRecipe.ibu = ibu
+                            newBeerRecipe.target_fg = target_fg
+                            newBeerRecipe.target_og = target_og
+                            newBeerRecipe.ebc = ebc
+                            newBeerRecipe.srm = srm
+                            newBeerRecipe.ph = ph
+                            newBeerRecipe.attenuationlevel = attenutation_level
+                            newBeerRecipe.brewing_tips = brewers_tips
+                            
+                            let volume = Volume(context: self!.context)
+                            volume.value = volumeDict["value"] as? Double ?? 0
+                            volume.units = volumeDict["units"] as? String ?? "liters"
+                            newBeerRecipe.volume = volume
+                            
+                            let boilVolume = BoilVolume(context: self!.context)
+                            boilVolume.value = boilVolumeDict["value"] as? Double ?? 0
+                            boilVolume.units = boilVolumeDict["units"] as? String ?? "liters"
+                            newBeerRecipe.boilVolume = boilVolume
+                            
+                            let ingredients = Ingredients(context: self!.context)
+                            let method = BeerMethod(context: self!.context)
+                            
+                            for maltInfo in maltsDict {
+                                let malt = Malt(context: self!.context)
+                                malt.amount = 10
+                                malt.units = "kilograms"
+                                malt.name = maltInfo["name"] as? String ?? "Name"
+                                ingredients.addToMalts(malt)
+                            }
+                            
+                            for hop in hopsDict {
+                                let hops = Hops(context: self!.context)
+                                hops.amount = 20
+                                hops.units = "grams"
+                                hops.name = hop["name"] as? String ?? "Name"
+                                hops.add = hop["add"] as? String ?? "Add"
+                                hops.attribute = hop["attribute"] as? String ?? "Attribute"
+                                ingredients.addToHops(hops)
+                            }
+                            
+                            for mash in mashTempDict {
+                                let mash_temp = MashTemp(context: self!.context)
+                                mash_temp.duration = mash["duration"] as? Int64 ?? 0
+                                mash_temp.units = "celsuis"
+                                mash_temp.temperature = 60
+                                method.addToMashTemp(mash_temp)
+                            }
+                            
+                            let fermentation = Fermentation(context: self!.context)
+                            fermentation.amount = fermDict["value"] as? Double ?? 0
+                            fermentation.units = fermDict["units"] as? String ?? "celsius"
+                            method.fermentation = fermentation
+                            
+                            ingredients.yeast = ingredientsDict["yeast"] as? String ?? "yeast"
+                            newBeerRecipe.method = method
+                            newBeerRecipe.ingredients = ingredients
+                            newBeerRecipe.foodPairings = food_pairing
+                            
+                            do {
+                                try self!.context.save()
+                            }
+                            catch {
+                                
+                            }
+                            self?.fetchBeer()
+                        }
+                        
+                        
+//                        newBeerRecipe.foodPairing = food_pairing
                         
                         // Append the new beer recipe
-                        self?.beerRecipeResults.append(newBeerRecipe)
+                    }
+                    else {
+                        print("Failed")
                     }
                 }
             }
@@ -230,22 +337,11 @@ extension HomeViewController: UISearchBarDelegate {
                 print("Json data is not a dictionary")
             }
             
-            // Update the UI on the Main thread
-            DispatchQueue.main.async {
-                // If there are results, show resultsTableView
-                if self?.beerRecipeResults.count != 0 {
-                    self?.resultsTableView.reloadData()
-                    self?.resultsTableView.isHidden = false
-                    self?.noResultsLabel.isHidden = true
-                }
-                // Else there are no results, show noResultsLabel
-                else {
-                    self?.resultsTableView.reloadData()
-                    self?.resultsTableView.isHidden = true
-                    self?.noResultsLabel.isHidden = false
-                }
-            }
+           
+            
+            self?.fetchBeer()
         }
+        
 
         // Perform dataTask
         task.resume()

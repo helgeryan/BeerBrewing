@@ -20,6 +20,27 @@
 		E684A2B726C1B23600EB5B26 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E684A2B626C1B23600EB5B26 /* DetailViewController.swift */; };
 		E684A2BA26D6014300EB5B26 /* somethingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E684A2B826D6014000EB5B26 /* somethingTableViewCell.swift */; };
 		E684A2BB26D6014300EB5B26 /* somethingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E684A2B926D6014000EB5B26 /* somethingTableViewCell.xib */; };
+		F563204326F54C58001ECC64 /* BeerMethod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203126F54C58001ECC64 /* BeerMethod+CoreDataClass.swift */; };
+		F563204426F54C58001ECC64 /* BeerMethod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203226F54C58001ECC64 /* BeerMethod+CoreDataProperties.swift */; };
+		F563204526F54C58001ECC64 /* BeerRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203326F54C58001ECC64 /* BeerRecipe+CoreDataClass.swift */; };
+		F563204726F54C58001ECC64 /* Ingredients+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203526F54C58001ECC64 /* Ingredients+CoreDataClass.swift */; };
+		F563204826F54C58001ECC64 /* Ingredients+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203626F54C58001ECC64 /* Ingredients+CoreDataProperties.swift */; };
+		F563204926F54C58001ECC64 /* BoilVolume+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203726F54C58001ECC64 /* BoilVolume+CoreDataClass.swift */; };
+		F563204A26F54C58001ECC64 /* BoilVolume+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203826F54C58001ECC64 /* BoilVolume+CoreDataProperties.swift */; };
+		F563204B26F54C58001ECC64 /* Hops+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203926F54C58001ECC64 /* Hops+CoreDataClass.swift */; };
+		F563204C26F54C58001ECC64 /* Hops+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203A26F54C58001ECC64 /* Hops+CoreDataProperties.swift */; };
+		F563204D26F54C58001ECC64 /* Volume+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203B26F54C58001ECC64 /* Volume+CoreDataClass.swift */; };
+		F563204E26F54C58001ECC64 /* Volume+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203C26F54C58001ECC64 /* Volume+CoreDataProperties.swift */; };
+		F563204F26F54C58001ECC64 /* MashTemp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203D26F54C58001ECC64 /* MashTemp+CoreDataClass.swift */; };
+		F563205026F54C58001ECC64 /* MashTemp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203E26F54C58001ECC64 /* MashTemp+CoreDataProperties.swift */; };
+		F563205126F54C58001ECC64 /* Fermentation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563203F26F54C58001ECC64 /* Fermentation+CoreDataClass.swift */; };
+		F563205226F54C58001ECC64 /* Fermentation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563204026F54C58001ECC64 /* Fermentation+CoreDataProperties.swift */; };
+		F563205326F54C58001ECC64 /* Malt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563204126F54C58001ECC64 /* Malt+CoreDataClass.swift */; };
+		F563205426F54C58001ECC64 /* Malt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563204226F54C58001ECC64 /* Malt+CoreDataProperties.swift */; };
+		F563205826F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563205726F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift */; };
+		F563205A26F55109001ECC64 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563205926F55109001ECC64 /* DetailView.swift */; };
+		F5CB416326F3A7A00075112C /* AtHomeBrewing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5CB416126F3A7A00075112C /* AtHomeBrewing.xcdatamodeld */; };
+		F5CB41B426F3C8390075112C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CB41B326F3C8390075112C /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +61,27 @@
 		E684A2B826D6014000EB5B26 /* somethingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = somethingTableViewCell.swift; sourceTree = "<group>"; };
 		E684A2B926D6014000EB5B26 /* somethingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = somethingTableViewCell.xib; sourceTree = "<group>"; };
 		F1B42A6C1F38040AF21A3AAE /* Pods-AtHomeBrewing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtHomeBrewing.debug.xcconfig"; path = "Target Support Files/Pods-AtHomeBrewing/Pods-AtHomeBrewing.debug.xcconfig"; sourceTree = "<group>"; };
+		F563203126F54C58001ECC64 /* BeerMethod+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeerMethod+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203226F54C58001ECC64 /* BeerMethod+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeerMethod+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563203326F54C58001ECC64 /* BeerRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeerRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203526F54C58001ECC64 /* Ingredients+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredients+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203626F54C58001ECC64 /* Ingredients+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredients+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563203726F54C58001ECC64 /* BoilVolume+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoilVolume+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203826F54C58001ECC64 /* BoilVolume+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoilVolume+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563203926F54C58001ECC64 /* Hops+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hops+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203A26F54C58001ECC64 /* Hops+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hops+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563203B26F54C58001ECC64 /* Volume+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Volume+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203C26F54C58001ECC64 /* Volume+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Volume+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563203D26F54C58001ECC64 /* MashTemp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MashTemp+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563203E26F54C58001ECC64 /* MashTemp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MashTemp+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563203F26F54C58001ECC64 /* Fermentation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fermentation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563204026F54C58001ECC64 /* Fermentation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fermentation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563204126F54C58001ECC64 /* Malt+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Malt+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F563204226F54C58001ECC64 /* Malt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Malt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F563205726F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BeerRecipe+CoreDataProperties.swift"; path = "/Users/rhelgeson/Dropbox (Modus)/Mac/Documents/BeerBrewing/BeerBrewing/AtHomeBrewing/Entities/BeerRecipe+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		F563205926F55109001ECC64 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F5CB416226F3A7A00075112C /* AtHomeBrewing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AtHomeBrewing.xcdatamodel; sourceTree = "<group>"; };
+		F5CB41B326F3C8390075112C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +134,7 @@
 		E684A29B26BBF96A00EB5B26 /* AtHomeBrewing */ = {
 			isa = PBXGroup;
 			children = (
+				F5CB417626F3C54C0075112C /* Entities */,
 				E684A29C26BBF96A00EB5B26 /* AppDelegate.swift */,
 				E684A29E26BBF96A00EB5B26 /* SceneDelegate.swift */,
 				E684A2A026BBF96A00EB5B26 /* HomeViewController.swift */,
@@ -105,8 +148,36 @@
 				E684A2B626C1B23600EB5B26 /* DetailViewController.swift */,
 				E684A2B826D6014000EB5B26 /* somethingTableViewCell.swift */,
 				E684A2B926D6014000EB5B26 /* somethingTableViewCell.xib */,
+				F5CB416126F3A7A00075112C /* AtHomeBrewing.xcdatamodeld */,
+				F5CB41B326F3C8390075112C /* CoreDataManager.swift */,
+				F563205926F55109001ECC64 /* DetailView.swift */,
 			);
 			path = AtHomeBrewing;
+			sourceTree = "<group>";
+		};
+		F5CB417626F3C54C0075112C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F563203126F54C58001ECC64 /* BeerMethod+CoreDataClass.swift */,
+				F563203226F54C58001ECC64 /* BeerMethod+CoreDataProperties.swift */,
+				F563203326F54C58001ECC64 /* BeerRecipe+CoreDataClass.swift */,
+				F563205726F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift */,
+				F563203526F54C58001ECC64 /* Ingredients+CoreDataClass.swift */,
+				F563203626F54C58001ECC64 /* Ingredients+CoreDataProperties.swift */,
+				F563203726F54C58001ECC64 /* BoilVolume+CoreDataClass.swift */,
+				F563203826F54C58001ECC64 /* BoilVolume+CoreDataProperties.swift */,
+				F563203926F54C58001ECC64 /* Hops+CoreDataClass.swift */,
+				F563203A26F54C58001ECC64 /* Hops+CoreDataProperties.swift */,
+				F563203B26F54C58001ECC64 /* Volume+CoreDataClass.swift */,
+				F563203C26F54C58001ECC64 /* Volume+CoreDataProperties.swift */,
+				F563203D26F54C58001ECC64 /* MashTemp+CoreDataClass.swift */,
+				F563203E26F54C58001ECC64 /* MashTemp+CoreDataProperties.swift */,
+				F563203F26F54C58001ECC64 /* Fermentation+CoreDataClass.swift */,
+				F563204026F54C58001ECC64 /* Fermentation+CoreDataProperties.swift */,
+				F563204126F54C58001ECC64 /* Malt+CoreDataClass.swift */,
+				F563204226F54C58001ECC64 /* Malt+CoreDataProperties.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,11 +297,32 @@
 			files = (
 				E684A2BA26D6014300EB5B26 /* somethingTableViewCell.swift in Sources */,
 				E684A2B526C1AA6700EB5B26 /* ViewExtension.swift in Sources */,
+				F563204326F54C58001ECC64 /* BeerMethod+CoreDataClass.swift in Sources */,
 				E684A2B326C1821000EB5B26 /* BeerRecipe.swift in Sources */,
+				F563204426F54C58001ECC64 /* BeerMethod+CoreDataProperties.swift in Sources */,
+				F5CB41B426F3C8390075112C /* CoreDataManager.swift in Sources */,
+				F563204926F54C58001ECC64 /* BoilVolume+CoreDataClass.swift in Sources */,
+				F563204826F54C58001ECC64 /* Ingredients+CoreDataProperties.swift in Sources */,
+				F563204B26F54C58001ECC64 /* Hops+CoreDataClass.swift in Sources */,
+				F563205426F54C58001ECC64 /* Malt+CoreDataProperties.swift in Sources */,
+				F563204726F54C58001ECC64 /* Ingredients+CoreDataClass.swift in Sources */,
+				F563205826F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift in Sources */,
+				F563205026F54C58001ECC64 /* MashTemp+CoreDataProperties.swift in Sources */,
+				F563204526F54C58001ECC64 /* BeerRecipe+CoreDataClass.swift in Sources */,
 				E684A2A126BBF96A00EB5B26 /* HomeViewController.swift in Sources */,
+				F563205A26F55109001ECC64 /* DetailView.swift in Sources */,
 				E684A2B126C17E3B00EB5B26 /* BeerRecipeTableViewCell.swift in Sources */,
+				F5CB416326F3A7A00075112C /* AtHomeBrewing.xcdatamodeld in Sources */,
+				F563205226F54C58001ECC64 /* Fermentation+CoreDataProperties.swift in Sources */,
+				F563204D26F54C58001ECC64 /* Volume+CoreDataClass.swift in Sources */,
+				F563205126F54C58001ECC64 /* Fermentation+CoreDataClass.swift in Sources */,
 				E684A29D26BBF96A00EB5B26 /* AppDelegate.swift in Sources */,
+				F563204E26F54C58001ECC64 /* Volume+CoreDataProperties.swift in Sources */,
+				F563204A26F54C58001ECC64 /* BoilVolume+CoreDataProperties.swift in Sources */,
+				F563204C26F54C58001ECC64 /* Hops+CoreDataProperties.swift in Sources */,
 				E684A29F26BBF96A00EB5B26 /* SceneDelegate.swift in Sources */,
+				F563204F26F54C58001ECC64 /* MashTemp+CoreDataClass.swift in Sources */,
+				F563205326F54C58001ECC64 /* Malt+CoreDataClass.swift in Sources */,
 				E684A2B726C1B23600EB5B26 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +527,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5CB416126F3A7A00075112C /* AtHomeBrewing.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5CB416226F3A7A00075112C /* AtHomeBrewing.xcdatamodel */,
+			);
+			currentVersion = F5CB416226F3A7A00075112C /* AtHomeBrewing.xcdatamodel */;
+			path = AtHomeBrewing.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E684A29126BBF96A00EB5B26 /* Project object */;
 }

@@ -124,11 +124,14 @@ class BeerRecipeTableViewCell: UITableViewCell {
         
         // Update text labels with specific beer recipe information
         nameLabel.text = beerRecipe.name
-        contributedByLabel.text = beerRecipe.contributedName
-        descriptionLabel.text = "\(beerRecipe.tagline)\n\n\(beerRecipe.description)"
+        contributedByLabel.text = beerRecipe.contributedBy
+        descriptionLabel.text = "\(beerRecipe.tagline ?? "")\n\n\(beerRecipe.beerdescription ?? "")"
         
         // Update the beerImageView image with the imageUrl
-        beerImageView.sd_setImage(with: beerRecipe.imageUrl, completed: nil)
+        guard let url = URL(string: beerRecipe.imageUrlString ?? "") else {
+            return
+        }
+        beerImageView.sd_setImage(with: url, completed: nil)
     }
     
     // Function to return the height of the BeerTableViewCell
