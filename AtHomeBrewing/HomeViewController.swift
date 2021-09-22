@@ -319,11 +319,6 @@ extension HomeViewController: UISearchBarDelegate {
                             }
                             self?.fetchBeer()
                         }
-                        
-                        
-//                        newBeerRecipe.foodPairing = food_pairing
-                        
-                        // Append the new beer recipe
                     }
                     else {
                         print("Failed")
@@ -337,12 +332,9 @@ extension HomeViewController: UISearchBarDelegate {
                 print("Json data is not a dictionary")
             }
             
-           
-            
             self?.fetchBeer()
         }
         
-
         // Perform dataTask
         task.resume()
     }
