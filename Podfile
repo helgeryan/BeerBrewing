@@ -7,4 +7,6 @@ target 'AtHomeBrewing' do
 
   # Pods for AtHomeBrewing
 pod "SDWebImage"
+pod "RxSwift"
+pod "RxCocoa"
 end

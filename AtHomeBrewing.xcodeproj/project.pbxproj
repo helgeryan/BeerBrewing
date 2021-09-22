@@ -39,6 +39,7 @@
 		F563205426F54C58001ECC64 /* Malt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563204226F54C58001ECC64 /* Malt+CoreDataProperties.swift */; };
 		F563205826F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563205726F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift */; };
 		F563205A26F55109001ECC64 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563205926F55109001ECC64 /* DetailView.swift */; };
+		F5B74B9626FBC63F001B47C1 /* SearchBeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B74B9526FBC63F001B47C1 /* SearchBeerViewModel.swift */; };
 		F5CB416326F3A7A00075112C /* AtHomeBrewing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5CB416126F3A7A00075112C /* AtHomeBrewing.xcdatamodeld */; };
 		F5CB41B426F3C8390075112C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CB41B326F3C8390075112C /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		F563204226F54C58001ECC64 /* Malt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Malt+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F563205726F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BeerRecipe+CoreDataProperties.swift"; path = "/Users/rhelgeson/Dropbox (Modus)/Mac/Documents/BeerBrewing/BeerBrewing/AtHomeBrewing/Entities/BeerRecipe+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		F563205926F55109001ECC64 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F5B74B9526FBC63F001B47C1 /* SearchBeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBeerViewModel.swift; sourceTree = "<group>"; };
 		F5CB416226F3A7A00075112C /* AtHomeBrewing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AtHomeBrewing.xcdatamodel; sourceTree = "<group>"; };
 		F5CB41B326F3C8390075112C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 				F5CB416126F3A7A00075112C /* AtHomeBrewing.xcdatamodeld */,
 				F5CB41B326F3C8390075112C /* CoreDataManager.swift */,
 				F563205926F55109001ECC64 /* DetailView.swift */,
+				F5B74B9526FBC63F001B47C1 /* SearchBeerViewModel.swift */,
 			);
 			path = AtHomeBrewing;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F563205826F54EB2001ECC64 /* BeerRecipe+CoreDataProperties.swift in Sources */,
 				F563205026F54C58001ECC64 /* MashTemp+CoreDataProperties.swift in Sources */,
 				F563204526F54C58001ECC64 /* BeerRecipe+CoreDataClass.swift in Sources */,
+				F5B74B9626FBC63F001B47C1 /* SearchBeerViewModel.swift in Sources */,
 				E684A2A126BBF96A00EB5B26 /* HomeViewController.swift in Sources */,
 				F563205A26F55109001ECC64 /* DetailView.swift in Sources */,
 				E684A2B126C17E3B00EB5B26 /* BeerRecipeTableViewCell.swift in Sources */,
